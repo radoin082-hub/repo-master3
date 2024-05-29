@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Contact Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+
+    .contact-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .contact-info, .contact-form {
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-info {
+      margin-right: 40px;
+    }
+
+    .contact-info div {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .contact-info div i {
+      font-size: 24px;
+      margin-right: 20px;
+      color: #a9b7e0;
+    }
+
+    .contact-form h2 {
+      margin-bottom: 30px;
+      color: #333;
+      text-align: center;
+      font-size: 32px;
+    }
+
+    .text-box, textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 30px;
+      border: 2px solid #a9b7e0;
+      border-radius: 10px;
+      outline: none;
+      background-color: #f7f7f7;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    .send-btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background-color: #a9b7e0;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .send-btn:hover {
+      background-color: #a9b7e0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-section">
+    <div class="contact-info">
+      <div><i class="fas fa-map-marker-alt"></i>University, Biskra, Algeria</div>
+      <div><i class="fas fa-envelope"></i>contact@email.com</div>
+      <div><i class="fas fa-phone"></i>+00 0000 000 000</div>
+      <div><i class="fas fa-clock"></i>Mon - Fri 8:00 AM to 5:00 PM</div>
+    </div>
+    <div class="contact-form">
+      <h2>Contact Us</h2>
+      <form class="contact" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="8391411c-5b60-42a0-bb41-aaa8e8924561">
+        <input type="text" name="name" class="text-box" placeholder="Your Name" required>
+        <input type="email" name="email" class="text-box" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <input type="submit" name="submit" class="send-btn" value="Send">
+      </form>
+    </div>
+  </div>
+</body>
+</html>

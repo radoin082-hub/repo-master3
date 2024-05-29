@@ -1,0 +1,679 @@
+/* Google Font Link */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 78px;
+  background: #d0d2d7; /* تغيير لون خلفية الشريط الجانبي */
+  padding: 6px 14px;
+  z-index: 99;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.sidebar .logo-details {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.sidebar .logo-details .icon {
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar .logo-details .logo_name {
+  color: #fff; /* تغيير لون النص في الشريط الجانبي */
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details .icon,
+.sidebar.open .logo-details .logo_name {
+  opacity: 1;
+}
+
+.sidebar .logo-details #btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 23px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details #btn {
+  text-align: right;
+}
+
+.sidebar i {
+  color: #fff; /* تغيير لون الأيقونات في الشريط الجانبي */
+  height: 60px;
+  min-width: 50px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.sidebar .nav-list {
+  margin-top: 20px;
+  height: 100%;
+}
+
+.sidebar li {
+  position: relative;
+  margin: 8px 0;
+  list-style: none;
+}
+
+.sidebar li .tooltip {
+  position: absolute;
+  top: -20px;
+  left: calc(100% + 15px);
+  z-index: 3;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: 0s;
+}
+
+.sidebar li:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar.open li .tooltip {
+  display: none;
+}
+
+.sidebar input {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 400;
+  outline: none;
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  background: #1d1b31;
+}
+
+.sidebar.open input {
+  padding: 0 20px 0 50px;
+  width: 100%;
+}
+
+.sidebar .bx-search {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  background: #1d1b31;
+  color: #fff;
+}
+
+.sidebar.open .bx-search:hover {
+  background: #1d1b31;
+  color: #fff;
+}
+
+.sidebar .bx-search:hover {
+  background: #fff;
+  color: #11101d;
+}
+
+.sidebar li a {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  background: #b2b3b5; /* تغيير لون خلفية عناصر الشريط الجانبي */
+}
+
+.sidebar li a:hover {
+  background: #fff;
+}
+
+.sidebar li a .links_name {
+  color: #fff; /* تغيير لون النص في عناصر الشريط الجانبي */
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+}
+
+.sidebar.open li a .links_name {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+  transition: all 0.5s ease
+  ;
+  color: #11101d; /* تغيير لون النص عند التحويم في عناصر الشريط الجانبي */
+}
+.average-input, .ranking-input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    transition: 0.5s;
+    color: #333; /* Text color */
+}
+
+.average-input:focus, .ranking-input:focus {
+    border-color: #4CAF50; /* Border color when focused */
+    color: #333; /* Text color when focused */
+}
+
+.average-input {
+    background-color: #e6f7ff; /* Light blue background */
+}
+
+.ranking-input {
+    background-color: #fff2e6; /* Light orange background */
+}
+.sidebar li i {
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+/* CSS pour les boutons "Lancer l'affectation" et "Valider tous les classements" */
+
+button {
+    padding: 10px 20px; /* Ajoutez ou ajustez le rembourrage selon vos préférences */
+    border: none;
+    border-radius: 5px;
+    background-color: #425870; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition en douceur pour la couleur de fond */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+  }
+  
+  /* Pour espacer les boutons si nécessaire */
+  button + button {
+    margin-left: 10px;
+  }
+  
+.home-section {
+  position: relative;
+  background: #fff;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.sidebar.open ~ .home-section {
+  left: 250px;
+  width: calc(100% - 250px);
+}
+
+.home-section .text {
+  display:  inline-block;
+  color: #11101d;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 18px;
+}
+
+@media (max-width: 420px) {
+  .sidebar li .tooltip {
+    display: none;
+  }
+}
+.-table {
+    width: 10%; /* تكبير الجدول بنسبة 90% */
+    border-collapse: collapse;
+    margin-top: 20px; /* زيادة المسافة من الأعلى */
+    border-radius: 20px; /* إضافة تدرج للحواف */
+    overflow: hidden; /* إخفاء الزوايا الزائدة */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* زيادة وضوح الظل */
+  }
+  .-table th {
+    background: linear-gradient(to right, #b1b9c1, #bebec2); /* تغيير لون خلفية رأس الجدول */
+    color: #ffffff; /* تغيير لون نص رأس الجدول */
+  }
+  
+  .-table th,
+  .-table td {
+    border: 2px solid #dddddd; /* زيادة سمك الحدود */
+    padding: 20px; /* زيادة التباعد داخل الخلايا */
+    text-align: center;
+    height: 80px; /* زيادة ارتفاع الصفوف */
+  }
+  
+  .-table th {
+    background-color: #8d8a8b; /* تغيير لون خلفية رأس الجدول */
+    color: #ffffff; /* تغيير لون نص رأس الجدول */
+  }
+  
+  .-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* تغيير لون خلفية الصفوف الزوجية */
+  }
+  
+  .-table tr:hover {
+    background: linear-gradient(to right, #d1d2d6, #c2c1c6); /* تغيير لون الصف عند التحويم */
+  }
+  
+  .-table a {
+    text-decoration: none; /* إزالة التزيين من الروابط داخل الجدول */
+    color: #f80d0d; /* تغيير لون الروابط */
+  }
+  
+  .-table a:hover {
+    color: #fff; /* تغيير لون الروابط عند التحويم */
+  }
+  
+  .home-section {
+    position: relative;
+    background: #efeded; /* لون الخلفية الجديد للصفحة */
+    min-height: 100vh;
+    top: 0;
+    left: 78px;
+    width: calc(100% - 78px);
+    transition: all 0.5s ease;
+    z-index: 2;
+  }
+  .home-section .text {
+    display: inline-block;
+    color: #11101d;
+    font-size: 25px;
+    font-weight: 500;
+    margin: 18px;
+    padding: 10px 20px; /* زيادة التباعد الداخلي */
+    border-radius: 20px; /* إضافة حواف مستديرة */
+    background: linear-gradient(to right, #c2c6d3, #c8c6d6); /* تدرج الألوان للخلفية */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* تأثير الظل */
+    transition: background-color 0.3s; /* تحويل لون الخلفية بأنيميشن */
+  }
+  
+  .home-section .text:hover {
+    background-color: #dbd7d7; /* تغيير لون الخلفية عند التحويم */
+    transition: background-color 0.3s; /* تحويل لون الخلفية بأنيميشن */
+  }
+  .-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  .sidebar .logo-details .logo_name,
+.sidebar li a .links_name {
+  color: #111; /* لون النص الأسود الداكن */
+}
+.sidebar .logo-details .logo_name,
+.sidebar li a .links_name,
+.home-section .text {
+  font-weight: bold; /* تخشين النص */
+}
+
+
+  .-table th, .-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: center;
+    color: #111; /* لون النص الأسود الداكن */
+  }
+  
+  .-table th {
+    background-color: #d5cece; /* تغيير لون خلفية رأس الجدول */
+    color: #ffffff; /* تغيير لون نص رأس الجدول */
+  }
+  
+  .-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* تغيير لون خلفية الصفوف الزوجية */
+  }
+  .-table td:first-child {
+    width: 12%;
+  }
+  .search-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(130, 128, 128, 0.5);
+    z-index: 9999;
+}
+
+.search-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+   
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(148, 145, 145, 0.3);
+    margin-top: 10px; 
+}
+
+.search-box input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.search-box button {
+    display: block;
+    width: auto; /* Ajustez la largeur automatiquement en fonction du contenu */
+    margin: 0 auto; /* Centrez les boutons horizontalement */
+    padding: 15px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-box button:hover {
+    background-color: #0056b3;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #000000;
+    cursor: pointer;
+}
+
+.search-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.search-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.search-box input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.search-box button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-box button:hover {
+    background-color: #0056b3;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #000000;
+    cursor: pointer;
+}
+.sidebar li button {
+    background-color: #b2b3b5; /* لون خلفية الزر */
+    border: none;
+    border-radius: 12px; /* لجعل الحواف مستديرة */
+    padding: 10px 20px; /* تضبيط التباعد داخل الزر */
+    cursor: pointer;
+    transition: background-color 0.3s; /* تأثير التحويل عند التحويم */
+    display: flex; /* لجعل النص والأيقونة في وسط الزر */
+    align-items: center; /* لوضع النص والأيقونة في وسط الزر */
+  }
+  
+  .sidebar li button:hover {
+    background-color: #fff; /* تغيير لون خلفية الزر عند التحويم */
+  }
+  
+  .sidebar li button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    width: 100%;
+    height: 60px; /* تعديل ارتفاع الزر */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sidebar li button i {
+    font-size: 24px; /* حجم الأيقونة داخل الزر */
+  }
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #196423;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+a.validate-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #007bff; /* Couleur du lien */
+  }
+  
+  a.validate-link:hover {
+    color: #0056b3; /* Couleur au survol du lien */
+  }
+  
+  a.validate-link i {
+    margin-right: 5px; /* Marge à droite de l'icône */
+  }
+  .bx.bx-edit {
+    /* Ajoutez vos styles personnalisés ici */
+    color: blue; /* Couleur du texte */
+    font-size: 20px; /* Taille de la police */
+    /* Autres propriétés CSS selon vos besoins */
+  }
+/* Style personnalisé pour la boîte de dialogue modale */
+.modal-content {
+  background-color: #fff; /* Fond blanc */
+  color: #333; /* Texte gris foncé */
+  border-radius: 20px; /* Coins arrondis */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Ombre douce */
+  position: fixed; /* Position fixe */
+  top: 50%; /* Déplacer la boîte de dialogue modale à 50% du haut */
+  left: 50%; /* Déplacer la boîte de dialogue modale à 50% du gauche */
+  transform: translate(-50%, -50%); /* Centrer la boîte de dialogue modale */
+}
+
+/* Style personnalisé pour le titre de la boîte de dialogue modale */
+.modal-title {
+  color: #333; /* Texte gris foncé */
+}
+
+/* Style personnalisé pour le corps de la boîte de dialogue modale */
+.modal-body {
+  color: #666; /* Texte gris */
+}
+
+/* Style personnalisé pour le bouton de fermeture de la boîte de dialogue modale */
+.close {
+  color: #666; /* Texte gris */
+  opacity: 1; /* Opacité complète */
+  font-size: 20px; /* Taille de police */
+  font-weight: bold; /* Gras */
+}
+/* Style pour la section d'informations de l'administrateur */
+#adminInfoSection {
+  width: 400px; /* Ajustez cette valeur selon vos préférences */
+  padding: 20px; /* Ajoute un peu d'espace autour du contenu */
+  background-color: #f0f0f0; /* Couleur de fond du carré */
+}
+
+#adminInfoTable {
+  width: 100%; /* Remplit entièrement la largeur du conteneur */
+  margin: 0 auto; /* Centre le tableau horizontalement */
+}
+
+
+/* Style pour le titre */
+#adminInfoTitle {
+  font-size: 36px; /* Taille de la police */
+  font-weight: bold; /* Gras */
+  color: #333; /* Couleur du texte */
+  text-align: center; /* Centrer horizontalement */
+  margin-bottom: 20px; /* Marge en bas */
+}
+/* Style pour les lignes et les cellules du tableau */
+#adminInfoTable tr {
+  font-size: 14px; /* Taille de la police */
+  color: #333; /* Couleur du texte */
+}
+
+#adminInfoTable th {
+  font-weight: bold; /* Gras */
+  text-align: left; /* Alignement à gauche */
+  padding: 8px 20px; /* Remplissage (haut et bas 8px, gauche et droite 20px) */
+  background-color: #f0f0f0; /* Couleur de fond */
+}
+
+#adminInfoTable td {
+  padding: 8px 20px; /* Remplissage (haut et bas 8px, gauche et droite 20px) */
+  border-top: 1px solid #ccc; /* Bordure supérieure */
+}
+
+/* Style pour la première colonne (Nom, Prénom, Email) */
+#adminInfoTable th:first-child,
+#adminInfoTable td:first-child {
+  width: 100px; /* Largeur de la première colonne */
+}
+#specialitySelect {
+  padding: 8px 12px; /* Ajoute un peu de marge à l'intérieur */
+  font-size: 16px; /* Taille de police */
+  border-radius: 4px; /* Ajoute un peu de courbure aux coins */
+  border: 1px solid #ccc; /* Ajoute une bordure grise */
+  background-color: #fff; /* Couleur de fond blanche */
+  color: #333; /* Couleur du texte */
+}
+
+#specialitySelect:hover {
+  border-color: #999; /* Bordure plus foncée au survol */
+}
+
+#specialitySelect:focus {
+  outline: none; /* Supprime la bordure de mise au point par défaut */
+  border-color: #007bff; /* Couleur de la bordure de mise au point */
+}
+
+/* Style des options */
+#specialitySelect option {
+  padding: 8px; /* Ajoute un peu de marge à l'intérieur */
+  font-size: 16px; /* Taille de police */
+}
+.home-section#topics .-table th:nth-child(1),
+.home-section#topics .-table td:nth-child(1) {
+  width: 6%; 
+}
+
+.home-section#topics .-table th:nth-child(3),
+.home-section#topics .-table td:nth-child(3) {
+  width: 40%; 
+}
+.home-section#teacher .-table th:nth-child(1),
+.home-section#teacher .-table td:nth-child(1) {
+  width: 6%; 
+}
+.home-section#ranking .-table th:nth-child(1),
+.home-section#ranking .-table td:nth-child(1) {
+  width: 6%; 
+}
+.home-section#students .-table th:nth-child(1),
+.home-section#students .-table td:nth-child(1) {
+  width: 6%; 
+}
+/* Ajoutez ce CSS pour styler les états invalides en bleu */
+.invalid-state {
+  color: blue;
+  font-style: italic;
+}

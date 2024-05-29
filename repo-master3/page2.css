@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #f1efef, #f1efef);
+  color: #333;
+}
+
+header {
+  width: 100%;
+  padding: 6px;
+  background-color: rgba(238, 218, 218, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(242, 224, 224, 0.612);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.logo img {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+  }
+  
+  .nav-link:hover {
+    color: #333;
+  }
+  
+  .nav-link:hover::before {
+    transform: translateX(0);
+  }
+  
+  .container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 60px 0;
+    gap: 60px;
+  }
+  
+  .container .box {
+    position: relative;
+    width: 300px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .container .box::before {
+    content: '';
+    position: absolute;
+    inset: -10px 50px;
+    border-top: 4px solid var(--clr);
+    border-bottom: 4px solid var(--clr);
+    z-index: -1;
+    transform: skewY(15deg);
+    transition: 0.5s ease-in-out;
+  }
+  
+  .container .box:hover::before {
+    transform: skewY(0deg);
+    inset: -10px 40px;
+  }
+  
+  .container .box::after {
+    content: '';
+    position: absolute;
+    inset: 60px -10px;
+    border-left: 4px solid var(--clr);
+    border-right: 4px solid var(--clr);
+    z-index: -1;
+    transform: skew(15deg);
+    transition: 0.5s ease-in-out;
+  }
+  
+  .container .box:hover::after {
+    transform: skew(0deg);
+    inset: 40px -10px;
+  }
+  
+  .container .box .content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 0 20px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .container .box .content .icon {
+    color: var(--clr);
+    width: 80px;
+    height: 80px;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 6px var(--clr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    background: rgba(255, 255, 255, 0.1);
+    transition: 0.5s ease-in-out;
+    border-radius: 50%;
+  }
+  
+  .container .box:hover .content .icon {
+    background: var(--clr);
+    color: #333;
+    box-shadow: 0 0 0 4px rgba(187, 178, 177, 0.819), 0 0 0 300px var(--clr);
+  }
+  
+  .container .box .content .text h3 {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: 500;
+    transition: 0.5s ease-in-out;
+  }
+  
+  .container .box:hover .content .text h3 {
+    color: #333;
+  }
+  
+  .container .box .content .text p {
+    color: rgba(84, 78, 78, 0.7);
+    transition: 0.5s ease-in-out;
+  }
+  
+  .container .box:hover .content .text p {
+    color: #b5adad;
+  }
+  
+  .container .box .content .text a {
+    position: relative;
+    background: var(--clr);
+    color: #333;
+    padding: 8px 15px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 10px;
+    transition: 0.5s ease-in-out;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .container .box .content .text a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(204, 193, 193, 0.835);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+  }
+  
+  .container .box .content .text a:hover::before {
+    transform: translateX(0);
+  }
+  
+  .container .box:hover .content .text a {
+    background: #ede6e6;
+    color: var(--clr);
+  }

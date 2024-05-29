@@ -1,0 +1,379 @@
+/* Google Font Link */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 78px;
+  background: #919cf0; /* تغيير لون خلفية الشريط الجانبي */
+  padding: 6px 14px;
+  z-index: 99;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.sidebar .logo-details {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.sidebar .logo-details .icon {
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar .logo-details .logo_name {
+  color: #fff; /* تغيير لون النص في الشريط الجانبي */
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details .icon,
+.sidebar.open .logo-details .logo_name {
+  opacity: 1;
+}
+
+.sidebar .logo-details #btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 23px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details #btn {
+  text-align: right;
+}
+
+.sidebar i {
+  color: #fff; /* تغيير لون الأيقونات في الشريط الجانبي */
+  height: 60px;
+  min-width: 50px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.sidebar .nav-list {
+  margin-top: 20px;
+  height: 100%;
+}
+
+.sidebar li {
+  position: relative;
+  margin: 8px 0;
+  list-style: none;
+}
+
+.sidebar li .tooltip {
+  position: absolute;
+  top: -20px;
+  left: calc(100% + 15px);
+  z-index: 3;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: 0s;
+}
+
+.sidebar li:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar.open li .tooltip {
+  display: none;
+}
+
+.sidebar input {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 400;
+  outline: none;
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  background: #1d1b31;
+}
+
+.sidebar.open input {
+  padding: 0 20px 0 50px;
+  width: 100%;
+}
+
+.sidebar .bx-search {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  background: #1d1b31;
+  color: #fff;
+}
+
+.sidebar.open .bx-search:hover {
+  background: #1d1b31;
+  color: #fff;
+}
+
+.sidebar .bx-search:hover {
+  background: #fff;
+  color: #11101d;
+}
+
+.sidebar li a {
+  display: flex;
+  /*height: 100%;*/
+  max-height: 22.5%;
+  width: 100%;
+  border-radius: 12px;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  background: #b2b3b5; /* تغيير لون خلفية عناصر الشريط الجانبي */
+}
+
+.sidebar li a:hover {
+  background: #fff;
+}
+
+.sidebar li a .links_name {
+  color: #fff; /* تغيير لون النص في عناصر الشريط الجانبي */
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+}
+
+.sidebar.open li a .links_name {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+  transition: all 0.5s ease;
+  color: #11101d; /* تغيير لون النص عند التحويم في عناصر الشريط الجانبي */
+}
+
+.sidebar li i {
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+
+.home-section {
+  position: relative;
+  background: #efeded; /* لون الخلفية الجديد للصفحة */
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.sidebar.open ~ .home-section {
+  left: 250px;
+  width: calc(100% - 250px);
+}
+
+.home-section .text {
+  display: inline-block;
+  color: #11101d;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 18px;
+  padding: 10px 20px; /* زيادة التباعد الداخلي */
+  border-radius: 20px; /* إضافة حواف مستديرة */
+  background: linear-gradient(to right, #89a2ec, #c8c6d6); /* تدرج الألوان للخلفية */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* تأثير الظل */
+  transition: background-color 0.3s; /* تحويل لون الخلفية بأنيميشن */
+}
+
+.home-section .text:hover {
+  background-color: #dbd7d7; /* تغيير لون الخلفية عند التحويم */
+  transition: background-color 0.3s; /* تحويل لون الخلفية بأنيميشن */
+}
+
+.-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* زيادة المسافة من الأعلى */
+  border-radius: 20px; /* إضافة تدرج للحواف */
+  overflow: hidden; /* إخفاء الزوايا الزائدة */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* زيادة وضوح الظل */
+}
+
+.-table th {
+  background: linear-gradient(to right, #7a8d9e, #5d52de); /* تغيير لون خلفية رأس الجدول */
+  color: #ffffff; /* تغيير لون نص رأس الجدول */
+}
+
+.-table th,
+.-table td {
+  border: 2px solid #dddddd; /* زيادة سمك الحدود */
+  padding: 20px; /* زيادة التباعد داخل الخلايا */
+  text-align: center;
+  height: 80px; /* زيادة ارتفاع الصفوف */
+}
+
+.-table th {
+  background-color: #8d8a8b; /* تغيير لون خلفية رأس الجدول */
+  color: #ffffff; /* تغيير لون نص رأس الجدول */
+}
+
+.-table tr:nth-child(even) {
+  background-color: #f2f2f2; /* تغيير لون خلفية الصفوف الزوجية */
+}
+
+.-table tr:hover {
+  background: linear-gradient(to right, #7482e5, #4e4d5a); /* تغيير لون الصف عند التحويم */
+}
+
+.-table a {
+  text-decoration: none; /* إزالة التزيين من الروابط داخل الجدول */
+  color: #f80d0d; /* تغيير لون الروابط */
+}
+
+.-table a:hover {
+  color: #fff; /* تغيير لون الروابط عند التحويم */
+}
+
+.sidebar .logo-details .logo_name,
+.sidebar li a .links_name,
+.home-section .text {
+  font-weight: bold; /* تخشين النص */
+  color: #111; /* لون النص الأسود الداكن */
+}
+
+.-table th,
+.-table td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.-table td:first-child {
+  width: 12%;
+}
+
+.search-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.search-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.search-box input[type="text"] {
+  width: calc(100% - 20px);
+  padding: 15px;
+  font-size: 18px;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.search-box button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-box button:hover {
+  background-color: #0056b3;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #000000;
+  cursor: pointer;
+}
+
+.sidebar li button {
+  background-color: #b2b3b5; /* لون خلفية الزر */
+  border: none;
+  border-radius: 12px; /* لجعل الحواف مستديرة */
+  padding: 10px 20px; /* تضبيط التباعد داخل الزر */
+  cursor: pointer;
+  transition: background-color 0.3s; /* تأثير التحويل عند التحويم */
+  display: flex; /* لجعل النص والأيقونة في وسط الزر */
+  align-items: center; /* لوضع النص والأيقونة في وسط الزر */
+}
+
+.sidebar li button:hover {
+  background-color: #fff; /* تغيير لون خلفية الزر عند التحويم */
+}
+
+.sidebar li button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  width: 100%;
+  height: 60px; /* تعديل ارتفاع الزر */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar li button i {
+  font-size: 24px; /* حجم الأيقونة داخل الزر */
+}

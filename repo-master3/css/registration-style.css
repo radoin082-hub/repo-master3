@@ -1,0 +1,33 @@
+body {
+  background-color: #f2f2f2;
+}
+.container {
+  max-width: 600px; /* زيادة عرض الحاوية */
+  margin-top: 50px; /* تباعد من الأعلى */
+}
+.card {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+}
+.card-header {
+  background-color: #a9b7e0; /* تغيير لون البوردو */
+  color: white;
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+}
+.btn-primary {
+  background-color: #a9b7e0; /* تغيير لون البوردو */
+  border: none;
+  padding: 12px 24px; /* زيادة حجم الأزرار */
+  font-size: 18px;
+  border-radius: 15px;
+}
+.btn-primary:hover {
+  background-color: #8799c1; /* لون التحويل عند التحويل */
+}
+.alert {
+  border-radius: 20px;
+  padding: 15px;
+  font-size: 18px;
+}
